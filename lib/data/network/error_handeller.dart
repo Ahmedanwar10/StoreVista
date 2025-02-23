@@ -1,4 +1,4 @@
-import 'package:advanced_1/data/network/failure.dart';
+import 'package:advanced_1/data/network/Failure.dart';
 import 'package:dio/dio.dart';
 
 class ErrorHandler implements Exception {
@@ -163,6 +163,10 @@ extension DataSourceExtension on DataSource {
             "Unknown Error - Something unexpected happened.\nخطأ غير معروف، حدث شيء غير متوقع.");
     }
   }
+}
+class ApiInternet{
+  static const int success = 0;
+  static const int failure =1;
 }
 
 class ResponseCodes {

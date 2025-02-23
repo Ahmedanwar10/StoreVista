@@ -1,6 +1,7 @@
 import 'package:advanced_1/data/data_source/remote_data_source.dart';
 import 'package:advanced_1/data/mappers/mapper.dart';
 import 'package:advanced_1/data/network/Failure.dart';
+import 'package:advanced_1/data/network/error_handeller.dart';
 import 'package:advanced_1/data/network/network_info.dart';
 import 'package:advanced_1/data/network/request.dart';
 import 'package:advanced_1/domain/models/models.dart';
@@ -17,19 +18,23 @@ class RepositoryImpl implements Repository {
     if (await _networkInfo.isConnected) {
       //its safe call Api
       final response = await _remoteDataSource.login(LoginRequest);
-      if (response.status == 0) {
-        //success
-        // return either right
-        // return data
-        return Right(response.toDomain());
-      } else {
-        // failure -- business error
-        // return either left
-        return Left(Failure(409, response.massage ?? "business error "));
-      }
+      try {
+  if (response.status == ApiInternet.success) {
+    //success
+    // return either right
+    // return data
+    return Right(response.toDomain());
+  } else {
+    // failure -- business error
+    // return either left
+    return Left(Failure(ApiInternet.failure, response.massage ??ResponseMessages.requestTimeout));
+  }
+} on Exception catch (e) {
+  return left(ErrorHandler.handle(e).failure);
+}
     } else {
       // return internet connection service
-      return Left(Failure(501, "Please check your internet connection "));
+      return Left(DataSource.notImplemented.getFailure());
     }
   }
 }
