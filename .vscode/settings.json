@@ -1,7 +1,8 @@
 {
-    "cSpell.words": [
-        "preesentaion",
-        "previousindex",
-        "Responce"
-    ]
+  "cSpell.words": [
+    "preesentaion",
+    "previousindex",
+    "Responce"
+  ],
+  "dart.flutterSdkPath": ".fvm/versions/3.29.0"
 }

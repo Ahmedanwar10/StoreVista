@@ -1,5 +1,5 @@
 import 'package:advanced_1/preesentaion/forgotpassword/forgotpassword_view.dart';
-import 'package:advanced_1/preesentaion/login/login_view.dart';
+import 'package:advanced_1/preesentaion/login/view/login_view.dart';
 import 'package:advanced_1/preesentaion/main/main_view.dart';
 import 'package:advanced_1/preesentaion/register/register_view.dart';
 import 'package:advanced_1/preesentaion/resources/strings_manager.dart';
