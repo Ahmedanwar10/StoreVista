@@ -1,6 +1,7 @@
 
 import 'package:advanced_1/preesentaion/login/view_model/login_view_model.dart';
 import 'package:advanced_1/preesentaion/resources/assets_manager.dart';
+import 'package:advanced_1/preesentaion/resources/routes_manager.dart';
 import 'package:advanced_1/preesentaion/resources/strings_manager.dart';
 import 'package:advanced_1/preesentaion/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: const EdgeInsets.only(
                       left: AppPadding.p28, right: AppPadding.p28),
                   child: StreamBuilder<bool>(
-                      stream: _viewModel.outIsUserNameValid,
+                      stream: _viewModel.outIsUsernameValidate,
                       builder: (context, snapshot) {
                         return TextFormField(
                           keyboardType: TextInputType.emailAddress,
@@ -85,11 +86,11 @@ class _LoginViewState extends State<LoginView> {
                   padding: const EdgeInsets.only(
                       left: AppPadding.p28, right: AppPadding.p28),
                   child: StreamBuilder<bool>(
-                      stream: _viewModel.outIsPasswordValid,
+                      stream: _viewModel.outIsPasswordValidate,
                       builder: (context, snapshot) {
                         return TextFormField(
                           keyboardType: TextInputType.visiblePassword,
-                          controller: _userPasswordController,
+                          controller: _passwordController,
                           decoration: InputDecoration(
                               hintText: AppStrings.password,
                               labelText: AppStrings.password,
@@ -106,7 +107,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: const EdgeInsets.only(
                       left: AppPadding.p28, right: AppPadding.p28),
                   child: StreamBuilder<bool>(
-                      stream: _viewModel.outAreAllInputsValid,
+                      stream: _viewModel.outAreAll,
                       builder: (context, snapshot) {
                         return SizedBox(
                           width: double.infinity,

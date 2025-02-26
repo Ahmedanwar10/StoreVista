@@ -48,12 +48,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       return Container();
     } else {
       return Scaffold(
-        backgroundColor: ColorsManager.white,
+        backgroundColor: ColorManager.white,
         appBar: AppBar(
-          backgroundColor: ColorsManager.white,
+          backgroundColor: ColorManager.white,
           elevation: AppSize.s4,
           systemOverlayStyle: SystemUiOverlayStyle(
-              statusBarColor: ColorsManager.white,
+              statusBarColor: ColorManager.white,
               statusBarBrightness: Brightness.dark),
         ),
         body: PageView.builder(
@@ -66,7 +66,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               return OnBoardingPage(sliderViewObject.sliderObject);
             }),
         bottomSheet: Container(
-          color: ColorsManager.white,
+          color:ColorManager .white,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -95,7 +95,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   Widget _getBottomSheetWidget(SliderViewObject sliderViewObject) {
     return Container(
-      color: ColorsManager.primary,
+      color: ColorManager.primary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
