@@ -22,8 +22,8 @@ class LoginUseCasee implements BaseUseCase<LoginUseCaseInput,Authentication>{
 class LoginUseCaseInput {
   String email;
   String password;
-  LoginUseCaseInput({
-    required this.email,
-    required this.password,
-  });
+  LoginUseCaseInput(
+     this.email,
+     this.password,
+  );
 }

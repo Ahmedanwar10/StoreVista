@@ -47,8 +47,12 @@ Map<String, dynamic> _$contactsResponceToJson(contactsResponce instance) =>
 AuthenticationResponce _$AuthenticationResponceFromJson(
         Map<String, dynamic> json) =>
     AuthenticationResponce(
-      json['customer'] as customerResponce?,
-      json['contacts'] as contactsResponce?,
+      json['customer'] == null
+          ? null
+          : customerResponce.fromJson(json['customer'] as Map<String, dynamic>),
+      json['contacts'] == null
+          ? null
+          : contactsResponce.fromJson(json['contacts'] as Map<String, dynamic>),
     )
       ..status = (json['status'] as num?)?.toInt()
       ..massage = json['massage'] as String?;
