@@ -1,4 +1,5 @@
 
+import 'package:advanced_1/app/dependancy_incjection.dart';
 import 'package:advanced_1/preesentaion/login/view_model/login_view_model.dart';
 import 'package:advanced_1/preesentaion/resources/assets_manager.dart';
 import 'package:advanced_1/preesentaion/resources/routes_manager.dart';
@@ -14,7 +15,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  LoginViewModel _viewModel = LoginViewModel(_loginUseCase);
+  LoginViewModel _viewModel = instance<LoginViewModel>();
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
