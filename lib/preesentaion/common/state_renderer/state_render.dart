@@ -1,9 +1,11 @@
+import 'package:advanced_1/preesentaion/resources/assets_manager.dart';
 import 'package:advanced_1/preesentaion/resources/colors.dart';
 import 'package:advanced_1/preesentaion/resources/font_manager.dart';
 import 'package:advanced_1/preesentaion/resources/strings_manager.dart';
 import 'package:advanced_1/preesentaion/resources/style_manager.dart';
 import 'package:advanced_1/preesentaion/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 enum StateRenderType {
   // POPUP STATE (DIALOG)
@@ -36,11 +38,11 @@ class StateRender extends StatelessWidget {
   Widget _getStateWidget(BuildContext context) {
     switch (stateRenderType) {
       case StateRenderType.popupLoadingState:
-      _getPopupDialog(context,[_getAnimatedImage()]);
+      _getPopupDialog(context,[_getAnimatedImage(JsonAssets.loading)]);
       
       case StateRenderType.popupErrorState:
         return _getPopupDialog(context,[
-            _getAnimatedImage(),
+            _getAnimatedImage(JsonAssets.error),
             _getMassage(message),
             _getRetryAgain(AppStrings.ok, context),
         ]);
@@ -48,7 +50,7 @@ class StateRender extends StatelessWidget {
       case StateRenderType.fullScreenLoadingState:
         return _getItemsColumn(
           [
-            _getAnimatedImage(),
+            _getAnimatedImage(JsonAssets.loading),
             _getMassage(message),
           ],
         );
@@ -56,14 +58,14 @@ class StateRender extends StatelessWidget {
       case StateRenderType.fullScreenEmptyState:
         _getItemsColumn(
         [
-          _getAnimatedImage(),
+          _getAnimatedImage(JsonAssets.empty),
           _getMassage(message),
         ]);
      
       case StateRenderType.fullScreenErrorState:
         _getItemsColumn(
           [
-            _getAnimatedImage(),
+            _getAnimatedImage(JsonAssets.error.toString()),
             _getMassage(message),
             _getRetryAgain(AppStrings.retryAgain, context),
           ],
@@ -71,7 +73,7 @@ class StateRender extends StatelessWidget {
      
       case StateRenderType.contentState:
        return Container();
-       default:return Container();
+       default: Container();
     }
   }
   Widget _getPopupDialog(BuildContext context,List<Widget> children) {
@@ -105,8 +107,10 @@ class StateRender extends StatelessWidget {
         children: children);
   }
 
-  Widget _getAnimatedImage() {
-    return SizedBox(width: 100, height: 100, child: Container());
+  Widget _getAnimatedImage(String animationName) {
+    return SizedBox(width: 100, height: 100,
+     child: LottieBuilder.asset(animationName)
+     );
   }
 
   Widget _getMassage(String message) {

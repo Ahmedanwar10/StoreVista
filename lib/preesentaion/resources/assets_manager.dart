@@ -17,10 +17,10 @@ class ImageAssets{
   static const String rightArrowSettingsIc =
       "$imagePath/right_arrow_settings_ic.svg";
 }
+const String jsonPath = "assets/images";
 
 class JsonAssets {
-  // static const String loading = "$jsonPath/loading.json";
-  // static const String error = "$jsonPath/error.json";
-  // static const String empty = "$jsonPath/empty.json";
-  // static const String success = "$jsonPath/success.json";
+  static const String loading = "$jsonPath/Animation - loading2.json";
+  static const String error = "$jsonPath/Animation - error_app_mina.json";
+  static const String empty = "$jsonPath/Animation - empty2.json";
 }
